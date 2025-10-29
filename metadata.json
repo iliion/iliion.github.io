@@ -1,0 +1,7 @@
+{
+  "name": "Local Greece",
+  "description": "A discovery platform connecting tourists and local businesses in Greece. Find experiences, activities, and personal services in nearby areas.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

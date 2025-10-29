@@ -1,0 +1,102 @@
+import { Listing } from '../types';
+
+export const FAKE_LISTINGS: Listing[] = [
+    {
+        id: 101,
+        title_en: 'Santorini Sunset Viewpoint Tour',
+        title_gr: 'Περιήγηση στο σημείο θέασης του ηλιοβασιλέματος της Σαντορίνης',
+        description_en: 'A guided tour to the most famous spot in Oia to watch the magical sunset. Includes local wine.',
+        description_gr: 'Μια ξενάγηση στο πιο διάσημο σημείο στην Οία για να παρακολουθήσετε το μαγικό ηλιοβασίλεμα. Περιλαμβάνει τοπικό κρασί.',
+        images: ['https://picsum.photos/seed/101/400/300'],
+        contact: { phone: '1234567890', whatsapp: '1234567890', email: 'info@santorinitours.com' },
+        lat: 36.4612,
+        lon: 25.3756,
+        category_id: '3', // Cultural Experiences
+        approved: true,
+        created_at: new Date().toISOString(),
+    },
+    {
+        id: 102,
+        title_en: 'Mykonos Windmills Photo Walk',
+        title_gr: 'Φωτογραφικός περίπατος στους ανεμόμυλους της Μυκόνου',
+        description_en: 'Join a professional photographer to capture the iconic windmills at the best time of day.',
+        description_gr: 'Συνοδεύστε έναν επαγγελματία φωτογράφο για να απαθανατίσετε τους εμβληματικούς ανεμόμυλους την καλύτερη ώρα της ημέρας.',
+        images: ['https://picsum.photos/seed/102/400/300'],
+        contact: { phone: '1234567890', whatsapp: '1234567890', email: 'info@mykonosphotowalk.com' },
+        lat: 37.4452,
+        lon: 25.3267,
+        category_id: '3', // Cultural Experiences
+        approved: true,
+        created_at: new Date().toISOString(),
+    },
+    {
+        id: 103,
+        title_en: 'Beachside Yoga Class in Crete',
+        title_gr: 'Μάθημα Γιόγκα δίπλα στην παραλία στην Κρήτη',
+        description_en: 'Start your day with a rejuvenating yoga session on the golden sands of a Cretan beach. All levels welcome.',
+        description_gr: 'Ξεκινήστε τη μέρα σας με μια αναζωογονητική συνεδρία γιόγκα στη χρυσή άμμο μιας κρητικής παραλίας. Όλα τα επίπεδα ευπρόσδεκτα.',
+        images: ['https://picsum.photos/seed/103/400/300'],
+        contact: { phone: '1234567890', whatsapp: '1234567890', email: 'info@creteyoga.com' },
+        lat: 35.5137,
+        lon: 24.0180,
+        category_id: '1', // Wellness & Beauty
+        approved: true,
+        created_at: new Date().toISOString(),
+    },
+    {
+        id: 104,
+        title_en: 'Boat Trip to Navagio Beach',
+        title_gr: 'Εκδρομή με σκάφος στην παραλία Ναυάγιο',
+        description_en: 'Experience the stunningly beautiful cove on the coast of Zakynthos. An unforgettable boat tour.',
+        description_gr: 'Ζήστε την εμπειρία του εκπληκτικά όμορφου όρμου στις ακτές της Ζακύνθου. Μια αξέχαστη περιήγηση με σκάφος.',
+        images: ['https://picsum.photos/seed/104/400/300'],
+        contact: { phone: '1234567890', whatsapp: '1234567890', email: 'info@navagioboattrips.com' },
+        lat: 37.8596,
+        lon: 20.6247,
+        category_id: '4', // Outdoor Adventures
+        approved: true,
+        created_at: new Date().toISOString(),
+    },
+    {
+        id: 106,
+        title_en: 'Local Pottery Workshop',
+        title_gr: 'Τοπικό Εργαστήριο Κεραμικής',
+        description_en: 'Learn the ancient art of Greek pottery from a local artisan. Create your own masterpiece to take home.',
+        description_gr: 'Μάθετε την αρχαία τέχνη της ελληνικής κεραμικής από έναν τοπικό τεχνίτη. Δημιουργήστε το δικό σας αριστούργημα για να το πάρετε σπίτι.',
+        images: ['https://picsum.photos/seed/106/400/300'],
+        contact: { phone: '1234567890', whatsapp: '1234567890', email: 'info@greekpottery.com' },
+        lat: 35.3387,
+        lon: 25.1442,
+        category_id: '2', // Workshops & Classes
+        approved: true,
+        created_at: new Date().toISOString(),
+    },
+    {
+        id: 107,
+        title_en: 'At-Home Massage Service',
+        title_gr: 'Υπηρεσία Μασάζ στο χώρο σας',
+        description_en: 'Relax and unwind with a professional massage at your hotel or villa. We come to you!',
+        description_gr: 'Χαλαρώστε και ξεκουραστείτε με ένα επαγγελματικό μασάζ στο ξενοδοχείο ή τη βίλα σας. Ερχόμαστε στο χώρο σας!',
+        images: ['https://picsum.photos/seed/107/400/300'],
+        contact: { phone: '1234567890', whatsapp: '1234567890', email: 'info@mobilemassaggr.com' },
+        lat: 37.9838,
+        lon: 23.7275,
+        category_id: '1', // Wellness & Beauty
+        approved: true,
+        created_at: new Date().toISOString(),
+    },
+    {
+        id: 108,
+        title_en: 'Guided Hike in Samaria Gorge',
+        title_gr: 'Πεζοπορία με ξεναγό στο φαράγγι της Σαμαριάς',
+        description_en: 'Trek through one of Europe\'s most spectacular gorges with an experienced guide.',
+        description_gr: 'Πεζοπορήστε σε ένα από τα πιο εντυπωσιακά φαράγγια της Ευρώπης με έναν έμπειρο οδηγό.',
+        images: ['https://picsum.photos/seed/108/400/300'],
+        contact: { phone: '1234567890', whatsapp: '1234567890', email: 'info@samariahikers.com' },
+        lat: 35.3085,
+        lon: 23.9608,
+        category_id: '4', // Outdoor Adventures
+        approved: true,
+        created_at: new Date().toISOString(),
+    }
+];
