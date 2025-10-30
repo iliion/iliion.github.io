@@ -3,11 +3,7 @@
 # It will build the site with `npm run build` and deploy the `dist/` output to GitHub Pages.
 #
 # Recommended Pages configuration on GitHub:
-# - In the repository Settings > Pages, set "Build and deployment" to "GitHub Actions".
-# - You do NOT need to set a branch here when using this workflow; the workflow deploys the artifact directly.
-#
-# If you prefer deploying to a gh-pages branch (legacy method), let me know and I can provide
-# the alternative workflow using peaceiris/actions-gh-pages.
+# - In the repository Settings > Pages, set "Build and deployment".
 on:
   push:
     branches:
