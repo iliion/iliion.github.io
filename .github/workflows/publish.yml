@@ -1,14 +1,12 @@
-# This workflow builds a Vite + React site and publishes it to GitHub Pages using the
-# GitHub Pages Actions (upload artifact + deploy). It uses the repository's default Node version.
-# It will build the site with `npm run build` and deploy the `dist/` output to GitHub Pages.
+# Build a Vite + React site and publish to the gh-pages branch using peaceiris/actions-gh-pages.
+# This avoids the GitHub Pages artifact/upload path which recently triggered a deprecation failure.
 #
-# Recommended Pages configuration on GitHub:
-# - In the repository Settings > Pages, set "Build and deployment".
+# Trigger: push to master, or manual run
 on:
   push:
     branches:
       - master
-  workflow_dispatch: {} # allow manual runs
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -16,7 +14,7 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,17 +30,17 @@ jobs:
         run: npm ci
 
       - name: Build
+        # If your build needs secrets (VITE_...), set them as repository secrets and uncomment below env block.
+        # env:
+        #   VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+        #   VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: npm run build
 
-      - name: Upload artifact (pages)
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
-        with: {}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          # optional: set keep_files: true to keep existing files not overwritten
+          # keep_files: false
