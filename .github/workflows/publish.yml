@@ -1,0 +1,52 @@
+# This workflow builds a Vite + React site and publishes it to GitHub Pages using the
+# GitHub Pages Actions (upload artifact + deploy). It uses the repository's default Node version.
+# It will build the site with `npm run build` and deploy the `dist/` output to GitHub Pages.
+#
+# Recommended Pages configuration on GitHub:
+# - In the repository Settings > Pages, set "Build and deployment" to "GitHub Actions".
+# - You do NOT need to set a branch here when using this workflow; the workflow deploys the artifact directly.
+#
+# If you prefer deploying to a gh-pages branch (legacy method), let me know and I can provide
+# the alternative workflow using peaceiris/actions-gh-pages.
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch: {} # allow manual runs
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload artifact (pages)
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
+        with: {}
