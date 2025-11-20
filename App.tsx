@@ -9,6 +9,7 @@ import Auth from './components/Auth';
 import Pagination from './components/Pagination';
 import DashboardPage from './components/DashboardPage';
 import AdminDashboard from './components/AdminDashboard';
+import AiAssistant from './components/AiAssistant';
 import { supabase } from './lib/supabaseClient';
 import { useGeolocation } from './hooks/useGeolocation';
 import { haversineDistance } from './utils/geo';
@@ -277,6 +278,7 @@ const App: React.FC = () => {
               {renderContent()}
           </main>
           <Auth show={showAuth} onClose={() => setShowAuth(false)} />
+          <AiAssistant />
       </div>
   );
 };
